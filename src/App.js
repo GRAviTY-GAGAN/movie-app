@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import {v4 as uuidv4} from 'uuid';
 import {
   MovieList,
   MovieListHeading,
@@ -31,7 +32,7 @@ function App() {
 
   useEffect(() => {
     const movieFavourites = JSON.parse(localStorage.getItem('react-movie-app-favourites'));
-    if(movieFavourites === undefined || movieFavourites === '') {
+    if(movieFavourites === undefined || movieFavourites === null) {
 
     } else {
       setFavourite(movieFavourites);
