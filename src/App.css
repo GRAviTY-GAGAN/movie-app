@@ -33,3 +33,7 @@ body {
   padding: 20px;
   text-align: center;
 }
+
+::-webkit-scrollbar {
+  width: 0rem;
+}
