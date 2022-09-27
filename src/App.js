@@ -43,10 +43,14 @@ function App() {
   }
 
   const addFavouriteMovie = (movie) => {
+    const alreadyExists = favourite.includes(movie)
+    if(alreadyExists === false) {
     const newFavourite = [...favourite, movie];
-    setFavourite(newFavourite);
-    saveToLocalStorage(newFavourite);
+      setFavourite(newFavourite);
+      saveToLocalStorage(newFavourite);
   };
+}
+ 
 
   const removeFavouriteMovie = (movie) => {
     const newFavouriteList = favourite.filter((favourite) => {
@@ -58,11 +62,11 @@ function App() {
 
   return (
     <div className="container-fluid movie-app">
-      <div className="row d-flex align-items-center mt-4 mb-4">
+      <div className="container-fluid row d-flex align-items-center mt-4 mb-4">
         <MovieListHeading heading="Movies" />
         <SearchBox setSearchValue={setSearchValue} />
       </div>
-      <div className="row">
+      <div className="container-fluid row">
         <MovieList
           movies={movies}
           handleFavouriteClick={addFavouriteMovie}
@@ -72,7 +76,7 @@ function App() {
       <div className="row d-flex align-items-center mt-4 mb-4">
         <MovieListHeading heading="Favourites" />
       </div>
-      <div className="row">
+      <div className="container-fluid row">
         <MovieList
           movies={favourite}
           handleFavouriteClick={removeFavouriteMovie}
